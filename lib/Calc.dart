@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Calc extends StatelessWidget {
+class Calc extends StatefulWidget {
    Calc({super.key});
+
+  @override
+  State<Calc> createState() => _CalcState();
+}
+
+class _CalcState extends State<Calc> {
 final num1controller = TextEditingController();
+
 final num2controller = TextEditingController();
+
+double result=0;
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -22,8 +32,12 @@ final num2controller = TextEditingController();
       body: Column(
         children: [
           SizedBox(
-            height: 150,
+            height: 75,
           ),
+           Text(result.toString(),style: TextStyle(
+             color: Colors.black,
+             fontSize: 20.0,
+           ),),
           Divider(
             thickness: 4.0,
             color: Colors.grey,
@@ -57,8 +71,15 @@ final num2controller = TextEditingController();
               style:  ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
               ),
-              onPressed: () {},
-            ),
+              onPressed: ()
+                  {
+                    double num1=double.parse(num1controller.text);
+                    double num2=double.parse(num2controller.text);
+                     result=num1+num2;
+                     setState(() {
+                     });
+                   }
+  ) ,
                 SizedBox(
                   width: 25,
                 ),
@@ -68,7 +89,14 @@ final num2controller = TextEditingController();
                   style:  ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+    double num1=double.parse(num1controller.text);
+    double num2=double.parse(num2controller.text);
+    result=num1-num2;
+    setState(() {
+    });
+    },
+
             ),
                 SizedBox(
                   width: 25,
@@ -82,7 +110,13 @@ final num2controller = TextEditingController();
                   style:  ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    double num1=double.parse(num1controller.text);
+                  double num2=double.parse(num2controller.text);
+                  result=num1*num2;
+                  setState(() {
+                  });
+                  },
                 ),
                 SizedBox(
                   width: 25,
@@ -96,10 +130,16 @@ final num2controller = TextEditingController();
                   style:  ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                   ),
-                  onPressed: () {},
+                  onPressed: () {double num1=double.parse(num1controller.text);
+                  double num2=double.parse(num2controller.text);
+                  result=num1/num2;
+                  setState(() {
+                  });
+                  },
                 ),
-          ]),
         ],
+      ),
+    ],
       ),
     );
   }
