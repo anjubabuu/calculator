@@ -36,7 +36,7 @@ double result=0;
           ),
            Text(result.toString(),style: TextStyle(
              color: Colors.black,
-             fontSize: 20.0,
+             fontSize: 30.0,
            ),),
           Divider(
             thickness: 4.0,
